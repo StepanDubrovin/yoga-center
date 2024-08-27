@@ -15,7 +15,7 @@ const routes = [
 ];
 
 
-const AppRouter: React.FC = () => {
+const AppRouter: React.FC = React.memo(() => {
     return (
         <BrowserRouter>
             <Routes>
@@ -25,6 +25,6 @@ const AppRouter: React.FC = () => {
             </Routes>
         </BrowserRouter>
     );
-};
+});
 
 export default AppRouter;

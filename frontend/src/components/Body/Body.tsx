@@ -53,7 +53,7 @@ const Body: React.FC = () => {
                         </Typography>
                         <Button 
                             variant="contained" 
-                            href='https://web.telegram.org/k/#1438512104'
+                            href='https://t.me/Kulich_21'
                             
                             sx={{ 
                                 bgcolor: '#9370DB', 

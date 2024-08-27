@@ -1,13 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid, Button, Card, CardContent, styled } from '@mui/material';
-
-const FullOverlay = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  marginBottom: '100px',
-  width: '100%',
-});
+import { Box, Typography, Grid, Button, Card, CardContent, Container, styled } from '@mui/material';
 
 const StyledBox = styled(Box)({
   backgroundColor: '#F9F9FF',
@@ -15,16 +7,17 @@ const StyledBox = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '120px 20px',
-  marginTop: '30px',
+  padding: '60px 20px',
   borderRadius: '10px',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  marginTop: '30px',
 });
 
 const UnderlinedTypography = styled(Typography)({
   position: 'relative',
   fontWeight: 'bold',
   fontSize: '1.2rem',
+  marginBottom: '10px',
   '&:after': {
     content: '""',
     position: 'absolute',
@@ -39,11 +32,12 @@ const UnderlinedTypography = styled(Typography)({
 const StyledCard = styled(Card)({
   backgroundColor: '#FFFFFF',
   borderRadius: '10px',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   transition: 'transform 0.3s',
   '&:hover': {
     transform: 'scale(1.05)',
   },
+  padding: '20px',
 });
 
 const priceList = [
@@ -57,38 +51,40 @@ const priceList = [
 const Price: React.FC = () => {
   return (
     <StyledBox>
-      <FullOverlay>
-        <Typography variant='h3' component='h1' gutterBottom>
-          Прайс 
+      <Container>
+        <Typography variant='h3' component='h1' gutterBottom align="center" sx={{ marginBottom: '40px' }}>
+          Прайс
         </Typography>
-      </FullOverlay>
-      
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-        {priceList.map((item, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <StyledCard>
-              <CardContent>
-                <UnderlinedTypography variant='h6'>{item.title}</UnderlinedTypography>
-                <Typography variant='body2' component='div' sx={{ marginTop: '10px' }}>{item.description}</Typography>
-              </CardContent>
-            </StyledCard>
-          </Grid>
-        ))}
-      </Grid>
-      <FullOverlay>
-        <Button
-          href='https://web.telegram.org/k/#1438512104'
-          variant="contained"
-          sx={{
-            backgroundColor: '#9370DB',
-            marginTop: '40px',
-            padding: '10px 20px',
-            fontSize: '1rem',
-            '&:hover': { backgroundColor: '#7A5DC7' }
-          }}>
-          Выбрать абонемент
-        </Button>
-      </FullOverlay>
+        
+        <Grid container spacing={4} justifyContent="center">
+          {priceList.map((item, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <StyledCard>
+                <CardContent>
+                  <UnderlinedTypography variant='h6'>{item.title}</UnderlinedTypography>
+                  <Typography variant='body2' sx={{ marginTop: '10px' }}>{item.description}</Typography>
+                </CardContent>
+              </StyledCard>
+            </Grid>
+          ))}
+        </Grid>
+        
+        <Box display="flex" justifyContent="center" marginTop="40px">
+          <Button
+            href='https://web.telegram.org/k/#1438512104'
+            variant="contained"
+            sx={{
+              backgroundColor: '#9370DB',
+              padding: '10px 20px',
+              fontSize: '1rem',
+              
+              '&:hover': { backgroundColor: '#7A5DC7' },
+            }}
+          >
+            Выбрать абонемент
+          </Button>
+        </Box>
+      </Container>
     </StyledBox>
   );
 };

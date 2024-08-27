@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { styled, Typography, Button, Card, CardActions, CardContent, CardMedia, Grid, Modal, Box } from '@mui/material';
 
 import hathayoga from '../../assets/images/hathayoga.jpg';
@@ -108,3 +108,4 @@ const CardClasses: React.FC = () => {
 };
 
 export default CardClasses;
+ */
