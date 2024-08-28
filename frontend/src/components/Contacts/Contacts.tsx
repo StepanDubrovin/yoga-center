@@ -5,12 +5,11 @@ import PhoneIcon from '@mui/icons-material/Phone';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: '#fff',
   maxWidth: '100%',
   margin: '0 auto',
   textAlign: 'left',
   boxShadow: theme.shadows[3],
-  borderRadius: theme.shape.borderRadius,
 }));
 
 const ItemBox = styled(Box)(({ theme }) => ({
