@@ -7,7 +7,7 @@ const StyledBox = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '60px 20px',
+  padding: '100px 20px',
   borderRadius: '10px',
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   marginTop: '30px',
@@ -71,7 +71,7 @@ const Price: React.FC = () => {
         
         <Box display="flex" justifyContent="center" marginTop="40px">
           <Button
-            href='https://web.telegram.org/k/#1438512104'
+            href='https://t.me/+79120770429'
             variant="contained"
             sx={{
               backgroundColor: '#9370DB',

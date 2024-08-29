@@ -25,7 +25,7 @@ export default function Header(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Box sx={{ my: 2 }}>
+      <Box component={Link} to="/" sx={{ my: 2 }}>
         <img src={logoround} alt="Гармония движения" style={{ width: '100px', height: '100px', marginTop: '10px'}} />
       </Box>
       <Divider />
@@ -73,7 +73,8 @@ export default function Header(props: Props) {
           
           <Typography
             variant="h4"
-            component="div"
+            component={Link}  
+            to="/"            
             sx={{
               flexGrow: 1,
               display: { xs: 'flex', sm: 'none' },
