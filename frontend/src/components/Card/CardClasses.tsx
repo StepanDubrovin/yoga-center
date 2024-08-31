@@ -3,11 +3,6 @@ import { styled, Typography, Button, Card, CardActions, CardContent, CardMedia, 
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducer/store'
 
-const StyledCardMedia = styled(CardMedia)({
-  height: 400,
-  width: 300,
-});
-
 const StyledCard = styled(Card)({
   width: 330,
   height: '100%',
@@ -65,8 +60,9 @@ const CardClasses: React.FC = () => {
         {classes.map((card, index) => (
           <Grid item key={index} xs={12} sm={6} md={3} sx={{ padding: '15px' }}>
             <StyledCard>
-              <StyledCardMedia
-                image={card.image}
+              <CardMedia
+                component="img" 
+                src={card.image}
                 alt={card.title}
               />
               <StyledCardContent>
