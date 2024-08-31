@@ -1,23 +1,22 @@
-/* import * as React from 'react';
+import * as React from 'react';
 import { styled, Typography, Button, Card, CardActions, CardContent, CardMedia, Grid, Modal, Box } from '@mui/material';
-
-import hathayoga from '../../assets/images/hathayoga.jpg';
-import thegroupishealthy from '../../assets/images/thegroupishealthy.jpg';
-import yogamedium from '../../assets/images/yogamedium.jpg';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../reducer/store'
 
 const StyledCardMedia = styled(CardMedia)({
   height: 400,
-  width: '100%',
+  width: 300,
 });
 
 const StyledCard = styled(Card)({
-  width: 300,
-  height: 450,
+  width: 330,
+  height: '100%',
   margin: '0 auto',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  padding: '10px',
+  
+  padding: '15px',
 });
 
 const StyledCardContent = styled(CardContent)({
@@ -38,35 +37,36 @@ const modalStyle = {
   p: 4,
 };
 
-const images = [hathayoga,  yogamedium, thegroupishealthy ];
 
 const CardClasses: React.FC = () => {
   
 
   const [open, setOpen] = React.useState(false);
   const [selectedDescription, setSelectedDescription] = React.useState('');
+  const [selectedBenefits, setSelectedBenefits] = React.useState<string[]>([]);
 
-  
+  const classes = useSelector((state: RootState) => state.classes.classes)
 
-  const handleOpen = (description: string) => {
+  const handleOpen = (description: string, benefits: string[]) => {
     setSelectedDescription(description);
+    setSelectedBenefits(benefits);
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
     setSelectedDescription('');
+    setSelectedBenefits([]);
   };
 
   return (
     <>
-      <Grid container spacing={1} sx={{ paddingLeft: 1, paddingRight: 1, marginTop: '65px' }}>
+      <Grid container spacing={1} sx={{ marginTop: '65px' }}>
         {classes.map((card, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} sx={{ padding: '5px' }}>
+          <Grid item key={index} xs={12} sm={6} md={3} sx={{ padding: '15px' }}>
             <StyledCard>
               <StyledCardMedia
-                component="img"
-                image={images[index % images.length]}
+                image={card.image}
                 alt={card.title}
               />
               <StyledCardContent>
@@ -78,7 +78,7 @@ const CardClasses: React.FC = () => {
                 <Button
                   variant="contained"
                   sx={{ bgcolor: '#9370DB', color: '#fff', marginTop: 'auto', '&:hover': { backgroundColor: '#7A5DC7' } }}
-                  onClick={() => handleOpen(card.description)}
+                  onClick={() => handleOpen(card.description, card.benefits)}
                 >
                   Узнать больше
                 </Button>
@@ -101,6 +101,20 @@ const CardClasses: React.FC = () => {
           <Typography id="modal-description" sx={{ mt: 2 }}>
             {selectedDescription}
           </Typography>
+          {selectedBenefits.length > 0 && (
+            <>
+              <Typography variant="h6" component="h3" sx={{ mt: 2 }}>
+                Преимущества
+              </Typography>
+              <ul>
+                {selectedBenefits.map((benefit, index) => (
+                  <li key={index}>
+                    <Typography variant="body2">{benefit}</Typography>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </Box>
       </Modal>
     </>
@@ -108,4 +122,3 @@ const CardClasses: React.FC = () => {
 };
 
 export default CardClasses;
- */

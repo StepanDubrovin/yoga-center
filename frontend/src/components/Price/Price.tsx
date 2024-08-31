@@ -52,7 +52,7 @@ const Price: React.FC = () => {
   return (
     <StyledBox>
       <Container>
-        <Typography variant='h3' component='h1' gutterBottom align="center" sx={{ marginBottom: '40px' }}>
+        <Typography variant='h3' component='h1' gutterBottom align="center" sx={{ marginBottom: '40px',  marginTop: '50px' }}>
           Прайс
         </Typography>
         

@@ -46,7 +46,7 @@ const Body: React.FC = () => {
                 <FullOverlay>
                     <TextOverlay>
                         <Typography variant="h2" component="h1" gutterBottom>
-                            Центр йоги «Гармония движения»
+                            Студия йоги «Гармония движения»
                         </Typography>
                         <Typography variant="h5" component="h2" gutterBottom>
                             Здоровье и хорошее настроение вместе с нами
