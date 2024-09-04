@@ -5,13 +5,14 @@ import three from '../../assets/images/three.jpg';
 import four from '../../assets/images/four.jpg';
 import five from '../../assets/images/five.jpg';
 
-
+import yoganidra from '../../assets/images/yoganidra.jpg'
 
 interface Classes {
     title: string, 
     description: string, 
     benefits: string[];
     image: string;
+    imageModal: string
 }
 
 interface ClassesState {
@@ -28,7 +29,8 @@ const initialState: ClassesState = {
                 'Развитие координации и гибкости за счет изменения положения тела в пространстве.',
                 'Увеличение силы и выносливости благодаря тренировке стабилизирующих мышц.'
             ],
-            image: one
+            image: one,
+            imageModal: ''
         },
         {
             title: 'Йога в гамаках(для продолжающих )',
@@ -38,7 +40,8 @@ const initialState: ClassesState = {
                 'Развитие координации и гибкости за счет изменения положения тела в пространстве.',
                 'Увеличение силы и выносливости благодаря тренировке стабилизирующих мышц.'
             ],
-            image: two
+            image: two,
+            imageModal: ''
         },
         {
             title: 'Хатха-йога',
@@ -48,7 +51,8 @@ const initialState: ClassesState = {
                 'Подходит для новичков благодаря простоте.',
                 'Является основой для других направлений йоги.'
             ],
-            image: three
+            image: three,
+            imageModal: ''
         },
         {
             title: 'Йога-нидра',
@@ -58,13 +62,15 @@ const initialState: ClassesState = {
                 'Уменьшение стресса и улучшение сна.',
                 'Повышение концентрации и ясности ума.'
             ],
-            image: four
+            image: four,
+            imageModal: yoganidra
         },
         {
             title: 'Индивидуальные тренировки',
-            description: '"Индивидуальные занятия проводятся по хатха-йоге, йоге в гамаках, йоге-нидра',
+            description: 'Индивидуальные занятия проводятся по хатха-йоге, йоге в гамаках, йоге-нидра',
             benefits: [],
-            image: five
+            image: five,
+            imageModal: ''
         }
     ]
 };

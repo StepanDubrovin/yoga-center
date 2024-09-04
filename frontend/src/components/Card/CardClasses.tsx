@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { styled, Typography, Button, Card, CardActions, CardContent, CardMedia, Grid, Modal, Box } from '@mui/material';
+import { styled, Typography, Button, Card, CardActions, CardContent, CardMedia, Grid, Modal, Box, IconButton } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducer/store'
+import CloseIcon from '@mui/icons-material/Close'
 
 const StyledCard = styled(Card)({
   width: 330,
-  height: '100%',
+  height: 630,
   margin: '0 auto',
   display: 'flex',
   flexDirection: 'column',
@@ -39,12 +40,14 @@ const CardClasses: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const [selectedDescription, setSelectedDescription] = React.useState('');
   const [selectedBenefits, setSelectedBenefits] = React.useState<string[]>([]);
+  const [selectedImageModal, setselectedImageModal] = React.useState('')
 
   const classes = useSelector((state: RootState) => state.classes.classes)
 
-  const handleOpen = (description: string, benefits: string[]) => {
+  const handleOpen = (description: string, benefits: string[], imageModal: string) => {
     setSelectedDescription(description);
     setSelectedBenefits(benefits);
+    setselectedImageModal(imageModal);
     setOpen(true);
   };
 
@@ -60,7 +63,7 @@ const CardClasses: React.FC = () => {
         {classes.map((card, index) => (
           <Grid item key={index} xs={12} sm={6} md={3} sx={{ padding: '15px' }}>
             <StyledCard>
-              <CardMedia
+              <CardMedia sx={{width: '300px', height: '450px'}}
                 component="img" 
                 src={card.image}
                 alt={card.title}
@@ -74,7 +77,7 @@ const CardClasses: React.FC = () => {
                 <Button
                   variant="contained"
                   sx={{ bgcolor: '#9370DB', color: '#fff', marginTop: 'auto', '&:hover': { backgroundColor: '#7A5DC7' } }}
-                  onClick={() => handleOpen(card.description, card.benefits)}
+                  onClick={() => handleOpen(card.description, card.benefits, card.imageModal)}
                 >
                   Узнать больше
                 </Button>
@@ -90,7 +93,18 @@ const CardClasses: React.FC = () => {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <Box sx={modalStyle}>
+        <Box sx={{...modalStyle, position: 'relative'}}>
+          <IconButton
+          onClick={handleClose}
+          sx={{
+            position: 'absolute', 
+            top: 8,
+            right: 8,
+            color: 'grey'
+          }}
+          >
+              <CloseIcon/>
+          </IconButton>
           <Typography id="modal-title" variant="h6" component="h2">
             Описание
           </Typography>
@@ -103,15 +117,35 @@ const CardClasses: React.FC = () => {
                 Преимущества
               </Typography>
               <ul>
-                {selectedBenefits.map((benefit, index) => (
+                {selectedBenefits.map((benefit, index)  => (
                   <li key={index}>
                     <Typography variant="body2">{benefit}</Typography>
                   </li>
                 ))}
               </ul>
+             
+              
             </>
           )}
+          {selectedImageModal && (
+            <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              mt: 2 }}>
+            <img 
+              src={selectedImageModal} 
+              alt='nidra'
+              style={{ 
+                maxWidth: '100%', 
+                maxHeight: '100%', 
+                objectFit: 'contain' 
+              }}
+            />
+          </Box>
+          )}
         </Box>
+        
       </Modal>
     </>
   );

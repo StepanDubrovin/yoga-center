@@ -53,7 +53,7 @@ export default function Header(props: Props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 35, display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
