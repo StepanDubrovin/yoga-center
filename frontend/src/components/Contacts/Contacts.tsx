@@ -41,8 +41,15 @@ const Contacts: React.FC = () => {
           <Typography variant="h6" component="h3">
             Телефон:
           </Typography>
+            <Typography variant="body1">
+            <a href="tel:+79120770429" style={{ textDecoration: 'none', color: 'inherit' }}>
+              +7 (912) 077-04-29
+            </a>
+          </Typography>
           <Typography variant="body1">
-            +7(912)-077-04-029
+            <a href="tel:+79222694969" style={{ textDecoration: 'none', color: 'inherit' }}>
+              +7 (922) 269-49-69
+            </a>
           </Typography>
         </Box>
       </ItemBox>
