@@ -46,15 +46,9 @@ const Footer: React.FC = () => {
             </Typography>
             <Typography variant="body2">
                 <a href='tel:+79120770429' style={{color: 'inherit', textDecoration: 'none'}}>
-                Телефон:  +7 (912) 077-04-29
+                Телефон:  +7 (912) 077-04-29, +7 (922) 269-49-69
                 </a>
-              </Typography>
-                <Typography variant="body2">
-                <a href='tel:+79222694969' style={{color: 'inherit', textDecoration: 'none', marginLeft: '68px'}}>
-                +7 (922) 269-49-69
-                </a>
-              </Typography>
-            
+              </Typography>      
           </Grid>
         </Grid>
         <Box textAlign="center" mt={2}>
