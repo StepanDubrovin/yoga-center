@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../reducer/store';
-import YogaIcon from '@mui/icons-material/SelfImprovement'; // Используем иконки (замени на нужные)
+import YogaIcon from '@mui/icons-material/SelfImprovement'; 
 
 
 
@@ -14,7 +14,7 @@ interface ClassDetails {
 const ScheduleTable: React.FC = () => {
   const schedule = useSelector((state: RootState) => state.schedule.schedule);
 
-  // Иконки для дней недели
+  
   const dayIcons = {
     Понедельник: <YogaIcon fontSize="large" />,
     Вторник: <YogaIcon fontSize="large" />,
